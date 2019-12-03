@@ -7,12 +7,12 @@ This action is a automatic reviews from selected branches.
 The following settings must be passed as environment variables as shown in the
 example.
 
-| Key            | Value                                                                | Suggested Type | Required | Default                   |
-| -------------- | -------------------------------------------------------------------- | -------------- | -------- | ------------------------- |
-| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**                | `secret env`   | **Yes**  | N/A                       |
-| `EVENT_TYPE`   | Type of event will have `APPROVED`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                 |
-| `BRANCHES`     | Select the branch that you want to use.                              | `env`          | No       | `release/*`               |
-| `MESSAGE`      | Can add comment at event select.                                     | `env`          | No       | `Thank you for approved.` |
+| Key            | Value                                                               | Suggested Type | Required | Default                        |
+| -------------- | ------------------------------------------------------------------- | -------------- | -------- | ------------------------------ |
+| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**               | `secret env`   | **Yes**  | N/A                            |
+| `EVENT_TYPE`   | Type of event will have `APPROVE`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                      |
+| `BRANCHES`     | Select the branch that you want to use.                             | `env`          | No       | `release/*`                    |
+| `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `🏳️‍🌈Success approve. Enjoy 🙏.` |
 
 ## Example usage
 
