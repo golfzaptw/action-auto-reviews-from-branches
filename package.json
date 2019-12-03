@@ -5,6 +5,12 @@
   "repository": "https://github.com/golfzaptw/action-auto-reviews-from-branches.git",
   "author": "Patawee Boonsongsri <psgolf16@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "lint:check": "eslint . --color",
+    "prettier": "prettier --write '**/*.js'",
+    "prettier:check": "prettier --list-different '**/*.js'"
+  },
   "devDependencies": {
     "@actions/core": "^1.2.0",
     "@actions/github": "^1.1.0",

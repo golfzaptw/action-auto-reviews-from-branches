@@ -23,8 +23,8 @@ jobs:
   reviews:
     runs-on: ubuntu-latest
     steps:
-      - name: Auto approve
-        uses: ./
+      - name: Auto reviews branches
+        uses: golfzaptw/action-auto-reviews-from-branches@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           EVENT_TYPE: 'APPROVE'
