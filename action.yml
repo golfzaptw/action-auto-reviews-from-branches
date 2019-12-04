@@ -1,7 +1,7 @@
 name: 'Auto reviews branches'
 description: 'Automatic reviews pull request from selected branches'
 branding:
-  icon: 'user'
+  icon: 'user-check'
   color: 'red'
 inputs:
   GITHUB_TOKEN:
