@@ -32,3 +32,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           BRANCHES: release/*
+          AUTHOR: golfzaptw
