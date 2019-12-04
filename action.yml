@@ -1,14 +1,14 @@
 name: 'Auto reviews branches'
-description: 'Automatic reviews from selected branches'
+description: 'Automatic reviews pull request from selected branches'
 branding:
-  icon: 'eye'
-  color: 'orange'
+  icon: 'user-check'
+  color: 'red'
 inputs:
   GITHUB_TOKEN:
     description: 'Personal github token'
     required: true
   EVENT_TYPE:
-    description: 'Type of event has been APPROVED, COMMENT and REQUEST_CHANGES.'
+    description: 'Type of event has been APPROVE, COMMENT and REQUEST_CHANGES.'
     required: false
     default: 'APPROVE'
   BRANCHES:
@@ -16,7 +16,7 @@ inputs:
     required: false
     default: 'release/*'
   MESSAGE:
-    description: 'Message for approved.'
+    description: 'Message for approve.'
     required: false
 runs:
   using: 'docker'

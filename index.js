@@ -30,7 +30,7 @@ try {
   }
 
   if (eventType === 'APPROVE' && !message) {
-    body = 'Thank you for approved.'
+    body = '🏳️‍🌈Success approve. Enjoy 🙏.'
   } else {
     body = message
   }
