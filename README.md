@@ -13,7 +13,8 @@ example.
 | `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**               | `secret env`   | **Yes**  | N/A                            |
 | `EVENT_TYPE`   | Type of event will have `APPROVE`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                      |
 | `BRANCHES`     | Select the branch that you want to use.                             | `env`          | No       | `release/*`                    |
-| `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `🏳️‍🌈Success approve. Enjoy 🙏.` |
+| `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `Success approve. Enjoy 🏳️‍🌈🎉.` |
+| `AUTHOR`       | Select the actor that you want to use.                              | `env`          | No       | N/A                            |
 
 ## Example usage
 
@@ -28,7 +29,8 @@ jobs:
         uses: golfzaptw/action-auto-reviews-from-branches@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-          EVENT_TYPE: 'APPROVE'
-          BRANCHES: 'release/*'
-          MESSAGE: 'Nice approve from github bot.'
+          EVENT_TYPE: APPROVE
+          BRANCHES: release/*
+          AUTHOR: golfzaptw
+          MESSAGE: Nice approve from github bot.
 ```
