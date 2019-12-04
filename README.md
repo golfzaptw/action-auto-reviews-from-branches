@@ -1,6 +1,7 @@
-<div align="center"><h1>Actions Auto Reviews From Selected Branches</h1></div>
+<div align="center"><h1>Actions Auto Reviews Pull Request From Selected Branches</h1></div>
 
-This action is a automatic reviews from selected branches.
+This action is a automatic reviews pull request from selected branches by github
+bot.
 
 ## Configuration with With
 
