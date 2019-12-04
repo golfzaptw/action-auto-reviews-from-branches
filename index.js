@@ -4,7 +4,7 @@ const github = require('@actions/github')
 try {
   const githubToken = core.getInput('GITHUB_TOKEN')
   const eventType = core.getInput('EVENT_TYPE')
-  const branch = core.getInput('BRANCH')
+  const branch = core.getInput('BRANCHES')
   const message = core.getInput('MESSAGE')
   const pullRequest = github.context.payload.pull_request
   const prNumber = pullRequest.number
