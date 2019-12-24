@@ -18,7 +18,7 @@ inputs:
   AUTHOR:
     description: 'AUTHOR are you want to automatic approve.'
     required: false
-    default: ['dependabot-preview[bot]', 'dependabot[bot]']
+    default: 'dependabot-preview[bot]', 'dependabot[bot]'
   MESSAGE:
     description: 'Message for approve.'
     required: false
