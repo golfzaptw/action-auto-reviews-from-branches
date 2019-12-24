@@ -22,6 +22,7 @@ inputs:
   MESSAGE:
     description: 'Message for approve.'
     required: false
+    default: 'Success approve. Enjoy 🏳️‍🌈🎉.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
