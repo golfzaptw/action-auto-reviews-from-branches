@@ -1,8 +1,10 @@
 {
   "extends": ["standard", "prettier"],
   "rules": {
+    "no-console": 1,
     "no-unused-vars": 2,
     "no-unused-expressions": 0,
-    "no-var": 2
+    "no-var": 2,
+    "max-params": [2, 3]
   }
 }
