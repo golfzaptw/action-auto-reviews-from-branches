@@ -1,5 +1,5 @@
-name: 'Auto reviews branches'
-description: 'Automatic reviews pull request from selected branches'
+name: 'Auto reviews'
+description: 'Review automatic `pull request` from selected branches or author.'
 branding:
   icon: 'user-check'
   color: 'red'
@@ -18,9 +18,11 @@ inputs:
   AUTHOR:
     description: 'AUTHOR are you want to automatic approve.'
     required: false
+    default: 'dependabot-preview[bot], dependabot[bot]'
   MESSAGE:
     description: 'Message for approve.'
     required: false
+    default: 'Success approve. Enjoy 🏳️‍🌈🎉.'
 runs:
   using: 'docker'
   image: 'Dockerfile'

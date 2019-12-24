@@ -3,8 +3,8 @@ const github = require('@actions/github')
 
 try {
   // Core Input
-  const githubToken = core.getInput('GITHUB_TOKEN')
-  const eventType = core.getInput('EVENT_TYPE')
+  const githubToken = core.getInput('GITHUB_TOKEN', {required: true})
+  const eventType = core.getInput('EVENT_TYPE', {required: true})
   const branch = core.getInput('BRANCHES')
   const message = core.getInput('MESSAGE')
   const author = core.getInput('AUTHOR')
@@ -13,11 +13,6 @@ try {
   const pullRequest = github.context.payload.pull_request
   const prNumber = pullRequest.number
   const headBranch = pullRequest.head.ref
-  // Regex check
-  const resultBranch = new RegExp(branch, 'g').test(headBranch)
-  const resultAuthor = new RegExp(`^${author}$`, 'g').test(headAuthor)
-
-  let body
 
   if (!pullRequest) {
     core.setFailed(
@@ -36,21 +31,36 @@ try {
     process.exit(1)
   }
 
-  if (eventType === 'APPROVE' && !message) {
-    body = 'Success approve. Enjoy 🏳️‍🌈🎉.'
-  } else {
-    body = message
-  }
-
-  if (resultBranch || resultAuthor) {
+  const resultBranch = new RegExp(branch, 'g').test(headBranch)
+  if (resultBranch) {
+    // Branches equal input
     pullRequestReviews({
       token: githubToken,
       prNumber: prNumber,
-      message: body,
+      message: message,
       eventType: eventType,
     })
   } else {
-    core.warning(`BRANCHES or AUTHOR not found at input`)
+    // Regex check
+    let replace = author.replace(new RegExp('\\[', 'g'), '*[[')
+    replace = replace.replace(new RegExp('\\]', 'g'), ']*]')
+    replace = replace.replace(new RegExp(' ', 'g'), '')
+    const arrayAuthor = replace.split(',')
+    for (let index = 0; index < arrayAuthor.length; index++) {
+      const result = new RegExp(`^${arrayAuthor[index]}$`, 'g').test(headAuthor)
+      if (result) {
+        pullRequestReviews({
+          token: githubToken,
+          prNumber: prNumber,
+          message: message,
+          eventType: eventType,
+        })
+        break
+      }
+      if (!result && index === arrayAuthor.length - 1) {
+        core.warning('BRANCHES or AUTHOR not found at input')
+      }
+    }
   }
 } catch (err) {
   core.error(err)

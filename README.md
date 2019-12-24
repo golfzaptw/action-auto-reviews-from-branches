@@ -8,13 +8,13 @@ bot.
 The following settings must be passed as environment variables as shown in the
 example.
 
-| Key            | Value                                                               | Suggested Type | Required | Default                        |
-| -------------- | ------------------------------------------------------------------- | -------------- | -------- | ------------------------------ |
-| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**               | `secret env`   | **Yes**  | N/A                            |
-| `EVENT_TYPE`   | Type of event will have `APPROVE`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                      |
-| `BRANCHES`     | Select the branch that you want to use.                             | `env`          | No       | `release/*`                    |
-| `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `Success approve. Enjoy 🏳️‍🌈🎉.` |
-| `AUTHOR`       | Select the actor that you want to use.                              | `env`          | No       | N/A                            |
+| Key            | Value                                                               | Suggested Type | Required | Default                                      |
+| -------------- | ------------------------------------------------------------------- | -------------- | -------- | -------------------------------------------- |
+| `GITHUB_TOKEN` | Personal github token. **recommend use GITHUN_TOKEN**               | `secret env`   | **Yes**  | N/A                                          |
+| `EVENT_TYPE`   | Type of event will have `APPROVE`, `COMMENT` and `REQUEST_CHANGES`. | `env`          | No       | `APPROVE`                                    |
+| `BRANCHES`     | Select the branch that you want to use.                             | `env`          | No       | `release/*`                                  |
+| `MESSAGE`      | Can add comment at event select.                                    | `env`          | No       | `Success approve. Enjoy 🏳️‍🌈🎉.`               |
+| `AUTHOR`       | Select the actor that you want to use.                              | `env`          | No       | `'dependabot-preview[bot], dependabot[bot]'` |
 
 ## Example usage
 
@@ -31,6 +31,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
           EVENT_TYPE: APPROVE
           BRANCHES: release/*
-          AUTHOR: golfzaptw
+          AUTHOR: 'dependabot-preview[bot], dependabot[bot], golfzaptw'
           MESSAGE: Nice approve from github bot.
 ```
