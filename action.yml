@@ -1,5 +1,5 @@
-name: 'Auto reviews branches'
-description: 'Automatic reviews pull request from selected branches'
+name: 'Auto reviews'
+description: 'Review automatic `pull request` from selected branches or author.'
 branding:
   icon: 'user-check'
   color: 'red'
