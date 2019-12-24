@@ -22,3 +22,8 @@ jobs:
         run: yarn
       - name: Check code on ci
         run: yarn lint:check && yarn prettier:check
+  check-yml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./
+        with:
