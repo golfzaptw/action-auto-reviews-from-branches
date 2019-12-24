@@ -42,13 +42,9 @@ try {
     })
   } else {
     // Regex check
-    let replace = author.replace(new RegExp('\\[', 'g'), '*[[')
-    replace = replace.replace(new RegExp('\\]', 'g'), ']*]')
-    replace = replace.replace(new RegExp(' ', 'g'), '')
-    const arrayAuthor = replace.split(',')
+    const arrayAuthor = author.split(',')
     for (let index = 0; index < arrayAuthor.length; index++) {
-      const result = new RegExp(`^${arrayAuthor[index]}$`, 'g').test(headAuthor)
-      if (result) {
+      if (arrayAuthor[index].trim() === headAuthor) {
         pullRequestReviews({
           token: githubToken,
           prNumber: prNumber,
@@ -57,7 +53,7 @@ try {
         })
         break
       }
-      if (!result && index === arrayAuthor.length - 1) {
+      if (index === arrayAuthor.length - 1) {
         core.warning('BRANCHES or AUTHOR not found at input')
       }
     }
