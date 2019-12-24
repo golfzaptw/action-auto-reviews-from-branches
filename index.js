@@ -31,24 +31,9 @@ try {
     process.exit(1)
   }
 
-  // Regex check
-  let replace = author.replace(new RegExp('\\[', 'g'), '*[[')
-  replace = replace.replace(new RegExp('\\]', 'g'), ']*]')
-  replace = replace.replace(new RegExp(' ', 'g'), '')
-  const arraySplit = replace.split(',')
   const resultBranch = new RegExp(branch, 'g').test(headBranch)
-  arraySplit.forEach(singleArray => {
-    const resultAuthor = new RegExp(`^${singleArray}$`, 'g').test(headAuthor)
-    if (resultAuthor) {
-      pullRequestReviews({
-        token: githubToken,
-        prNumber: prNumber,
-        message: message,
-        eventType: eventType,
-      })
-    }
-  })
   if (resultBranch) {
+    // Branches equal input
     pullRequestReviews({
       token: githubToken,
       prNumber: prNumber,
@@ -56,7 +41,26 @@ try {
       eventType: eventType,
     })
   } else {
-    core.warning(`BRANCHES or AUTHOR not found at input`)
+    // Regex check
+    let replace = author.replace(new RegExp('\\[', 'g'), '*[[')
+    replace = replace.replace(new RegExp('\\]', 'g'), ']*]')
+    replace = replace.replace(new RegExp(' ', 'g'), '')
+    const arrayAuthor = replace.split(',')
+    for (let index = 0; index < arrayAuthor.length; index++) {
+      const result = new RegExp(`^${arrayAuthor[index]}$`, 'g').test(headAuthor)
+      if (result) {
+        pullRequestReviews({
+          token: githubToken,
+          prNumber: prNumber,
+          message: message,
+          eventType: eventType,
+        })
+        break
+      }
+      if (!result && index === arrayAuthor.length - 1) {
+        core.warning('BRANCHES or AUTHOR not found at input')
+      }
+    }
   }
 } catch (err) {
   core.error(err)
@@ -75,7 +79,6 @@ async function pullRequestReviews({token, prNumber, message, eventType}) {
     })
     .then(() => {
       core.info(`Done. Please see at pull_request #${prNumber} 🎉`)
-      process.exit(0)
     })
     .catch(err => {
       core.error(err)
