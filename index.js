@@ -46,7 +46,6 @@ try {
         message: message,
         eventType: eventType,
       })
-      process.exit(0)
     }
   })
   if (resultBranch) {
@@ -76,6 +75,7 @@ async function pullRequestReviews({token, prNumber, message, eventType}) {
     })
     .then(() => {
       core.info(`Done. Please see at pull_request #${prNumber} 🎉`)
+      process.exit(0)
     })
     .catch(err => {
       core.error(err)
