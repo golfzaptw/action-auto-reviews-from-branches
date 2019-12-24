@@ -20,7 +20,7 @@ try {
   // let body
 
   const myInput = core.getInput('AUTHOR')
-  core.debug(`Hello ${myInput} from inside a container`)
+  core.info(`Hello ${myInput} from inside a container`)
 
   // if (!pullRequest) {
   //   core.setFailed(
