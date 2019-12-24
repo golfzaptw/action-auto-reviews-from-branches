@@ -31,4 +31,4 @@ jobs:
         uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-          AUTHOR: golfzaptw
+          AUTHOR: 'dependabot-preview[bot], dependabot[bot], golfzaptw'
