@@ -76,7 +76,7 @@ async function pullRequestReviews({token, prNumber, message, eventType}) {
     .then(() => {
       core.info(`Done. Please see at pull_request #${prNumber} 🎉`)
     })
-    .catch(err => {
+    .catch((err) => {
       core.error(err)
       core.setFailed(err.message)
     })
