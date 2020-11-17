@@ -1,6 +1,6 @@
 {
   "name": "action-auto-reviews-from-branches",
-  "version": "1.0.0",
+  "version": "1.2.2",
   "main": "index.js",
   "repository": "https://github.com/golfzaptw/action-auto-reviews-from-branches.git",
   "author": "Patawee Boonsongsri <psgolf16@gmail.com>",
@@ -12,15 +12,15 @@
     "prettier:check": "prettier --list-different '**/*.js'"
   },
   "devDependencies": {
-    "@actions/core": "^1.2.0",
-    "@actions/github": "^2.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^10.0.0",
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "prettier": "^1.19.1"
+    "eslint-plugin-standard": "^4.1.0",
+    "prettier": "^2.1.2"
   }
 }
