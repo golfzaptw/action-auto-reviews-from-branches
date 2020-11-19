@@ -37,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          bundle --path vendor/bundle
+          bundle config set path 'vendor/bundle'
           bundle exec danger
       - name: Auto reviews branches
         uses: ./
