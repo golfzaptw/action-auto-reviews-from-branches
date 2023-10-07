@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:20-alpine
 LABEL "com.github.actions.name"="action-auto-reviews-from-branches"
 LABEL "com.github.actions.description"="Review automatic `pull request` from selected branches or author."
 LABEL "com.github.actions.icon"="user-check"
