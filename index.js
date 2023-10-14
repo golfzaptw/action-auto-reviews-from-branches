@@ -66,7 +66,7 @@ try {
 async function pullRequestReviews({ token, prNumber, message, eventType }) {
   try {
     const octokit = github.getOctokit(token);
-    const response = await octokit.pulls.createReview({
+    const response = await octokit.rest.pulls.createReview({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: prNumber,
