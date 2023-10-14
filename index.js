@@ -63,21 +63,19 @@ try {
   core.setFailed(err.message)
 }
 
-async function pullRequestReviews({token, prNumber, message, eventType}) {
-  const octokit = github.getOctokit(token)
-  await octokit.pulls
-    .createReview({
+async function pullRequestReviews({ token, prNumber, message, eventType }) {
+  try {
+    const octokit = github.getOctokit(token);
+    const response = await octokit.pulls.createReview({
       owner: github.context.repo.owner,
       repo: github.context.repo.repo,
       pull_number: prNumber,
       body: message,
       event: eventType,
-    })
-    .then(() => {
-      core.info(`Done. Please see at pull_request #${prNumber} 🎉`)
-    })
-    .catch((err) => {
-      core.error(err)
-      core.setFailed(err.message)
-    })
+    });
+    core.info(`Review created successfully. Response: ${JSON.stringify(response.data)}`);
+  } catch (error) {
+    core.error(`Error creating review: ${error.message}`);
+    core.setFailed(error.message);
+  }
 }
