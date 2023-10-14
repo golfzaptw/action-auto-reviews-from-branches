@@ -1,6 +1,5 @@
 name-template: 'Release v$NEXT_PATCH_VERSION 🌈'
 tag-template: '$NEXT_PATCH_VERSION'
-branches: 'master'
 categories:
   - title: '🚀 Features'
     labels:
